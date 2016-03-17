@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function foo(){
+        var a={num:123}
+//        console.log(a.num)
+        return {
+//            b:a,
+            a:a,
+            set: function (v) {
+                a.num=v;//此时a指上面的变量a
+//                this.a.num=v;//此时a指上面的属性a,
+                //调用set属性后就会改变a属性的值，
+                //两种方式是通过两个不同的名字访问同一地址
+            }
+        }
+
+    }
+    var f=foo()
+    console.log(f.a.num);
+    f.set(998);
+    console.log(f.a.num);
+    console.log(f.b.num);
+
+
+//    console.log(foo().a.num);
+
+
+</script>
+</body>
+</html>

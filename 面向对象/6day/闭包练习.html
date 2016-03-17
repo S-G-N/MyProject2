@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    function foo1(){
+//        var a=Math.random();
+//        return function () {
+//            return a;
+//        }
+//    }
+//    var f=foo1();
+//    console.log(f());//foo1函数外访问a
+//    console.log(f());//foo1函数外访问a
+//    function foo2(){
+//
+//        console.log(f());
+//         return f();
+//    }
+//    console.log(foo2());
+
+
+    ////////////////////////////////////////////////
+//function foo1(){
+//    var a=1;
+//    var b=2;
+//    return {
+//        get_a: function () {
+//            return a;
+//        },
+//        get_b: function () {
+//            return b;
+//        },
+//        set_a:function(val){
+//            a=val;
+//        },
+//        set_b:function(val){
+//            b=val;
+//        }
+//    }
+//}
+//    var f=foo1();
+//    f.set_a(4);
+//    console.log(f.get_a());
+//////////////////////////////////////////////////////////////
+function foo1(){
+    var a=1;
+    var b=2;
+    return {
+        get:function (){
+           return
+//            {
+//               a:a,
+//               b:b
+//           }
+        },
+        set_a:function(val){
+            a=val;
+        },
+        set_b:function(val){
+            b=val;
+        }
+    }
+}
+//var f=foo1();
+foo1().set_a(4);
+console.log(foo1().get().a);
+
+
+</script>
+</body>
+</html>

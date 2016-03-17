@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var o=(function () {
+        var age=0;
+        return{
+            get age(){
+//                console.log('getter')
+                return  age;
+            },
+            set age(v){
+                if(v<0){
+                    console.log('年龄不能为负数');
+                }else{
+                    age=v;
+                }
+            }
+        }
+
+    })();
+    console.log(o.age);
+    o.set(12);
+    console.log(o.age);
+</script>
+</body>
+</html>

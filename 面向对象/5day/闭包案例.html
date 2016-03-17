@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function f(){
+        var json={
+            name:'张三',
+            gender:'男',
+            age:'19'
+        }
+        return {
+            get_name: function () {
+                return json.name;
+            },
+            get_gender: function () {
+                return json.gender;
+            },
+            get_age: function () {
+                return json.age;
+            },
+            set_name: function (j) {
+                json.name=j;
+            },
+            set_gender: function (j) {
+                json.gender=j;
+            },
+            set_age: function (j) {
+                json.age=j;
+            }
+        }
+    }
+    var k=f();
+    console.log(k.get_name());
+    k.set_age('33');
+    console.log(k.get_age());
+//
+</script>
+</body>
+</html>

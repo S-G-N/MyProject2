@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+//    写一个函数 J, 要求如果函数接收一个参数, 如果该参数是函数, 则将其加载到 onload 上;
+//    如果传递的是 一个字符串. 如果字符串是 # 开头, 那么获得页面中 id 等于该字符串的元素;
+//    如果该字符串是以. 开头, 则获得页面中 class 属性为该字符串的元素(数组)
+//    如果仅仅是一个名字字符串, 则返回标签名字为该字符串的元素
+//    如果有两个参数, 第一个参数是 选择器, 第二个参数也是选择器
+//    则在第二个字符串的元素上找第一个字符串的元素
+
+    function J(){
+        var a=arguments
+         if(a.length=1) {//传入参数是1个
+             if (typeof a[0] === 'function') {
+                 window.onload = a[0];
+             }
+             else if (typeof a[0] === 'string') {
+                 if (a[0].charAt(0) === '#') {
+                     var dv = document.getElementById(a[0].substring(1));//从下标为1的元素开始截取
+                 }else
+                 if (a[0].charAt(0) === '.') {
+                      dv = document.getElementsByClassName(a[0].substring(1));
+                 }else{
+                      dv = document.getElementsByTagName(a[0]);
+                 }
+             }
+             return dv;
+         }
+
+     }
+//////////////////////////测试window.onload加载
+//    J(function () {
+//        //获得元素
+////        console.log(dv);
+////        var dv=document.getElementById('dv');
+////        //添加样式
+//        dv.style.border='1px solid red'
+//        dv.style.width='100px'
+//        dv.style.height='100px'
+//        console.log("加载了")
+//    })
+/////////////////////////测试# .
+//J(function () {
+//    J('#dv').style.border='1px solid red'
+//    J('#dv').style.width='200px'
+//    J('#dv').style.height='100px'
+//    J('#dv').style.backgroundColor='pink'
+//    console.log(J('#dv'))
+//})
+/////////////////////测试# .  升级
+//function setStyle(node,styles){
+//    for(var k in styles){
+//        node.style[k]=styles[k];
+//    }
+//}
+//J(function () {
+//
+//    setStyle(J('#dv'),{
+//            border:'5px dashed blue',
+//            width:'200px',
+//            height:'200px',
+//            backgroundColor:'pink'
+//    })
+//})
+/////////////////////////////测试tagaName
+//function setStyle(node,styles){
+//    for(var k in styles){
+//        node.style[k]=styles[k];
+//    }
+//}
+//J(function () {
+//    var divs=J('div')
+//    for(var i=0;i<divs.length;i++){
+//        setStyle(divs[i],{
+//            border:'5px dashed blue',
+//            width:'200px',
+//            height:'200px',
+//            backgroundColor:'pink'
+//        })
+//    }
+//})
+/////////////////////////////测试tagaName 加入颜色
+//function setStyle(node,styles){
+//    for(var k in styles){
+//        node.style[k]=styles[k];
+//    }
+//}
+//J(function () {
+//    var divs=J('div')
+//    var color=['red','yellow','green','yellow']
+//    for(var i=0;i<divs.length;i++){
+//        setStyle(divs[i],{
+//            border:'5px dashed blue',
+//            width:'200px',
+//            height:'200px',
+//            backgroundColor:color[i%4]
+//        })
+//    }
+//})
+///////////////////////////测试tagaName 加入颜色升级
+//function setStyle(nodes,styles){//此处假设接收多个结点
+//    for(var i=0;i<nodes.length;i++){
+//        for(var k in styles){
+//            nodes[i].style[k]=styles[k];
+//        }
+//    }
+//}
+//J(function () {
+//
+//        setStyle(J('div'),{
+//            border:'5px dashed blue',
+//            width:'200px',
+//            height:'200px',
+//            backgroundColor:'yellow'
+//        })
+//
+//})
+///////////////////////////整合
+function setStyle(nodes,styles){//此处假设接收多个结点,是一个数组
+    for(var i=0;i<nodes.length;i++){
+        for(var k in styles){
+            nodes[i].style[k]=styles[k];
+        }
+    }
+}
+              /****测试id*******/
+
+J(function () {
+    setStyle([J('#dv')],{//此处J('#dv')应该传入的是一个数组所以加[]
+            border:'5px dashed blue',
+            width:'200px',
+            height:'200px',
+            backgroundColor:'pink'
+    })
+});
+
+J(function () {
+    setStyle(J('div'),{
+        border:'5px dashed blue',
+        width:'200px',
+        height:'200px',
+        backgroundColor:'yellow'
+    })
+})
+</script>
+<div id="dv"></div>
+<div class="dv"></div>
+<div class="dv"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
+

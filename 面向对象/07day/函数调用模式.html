@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var length = 10;
+    function fn(){
+        console.log(this.length)
+    }
+    var obj = {
+        length: 5,
+        mathod: function(f){
+            f(); 	//函数调用模式，此时调用fn，this指window				// 10
+            arguments[0]();	//对象调用模式，此时调用fn，this指arguments		// 2
+        }
+    }
+    obj.mathod(fn,1);//对象调用模式   //10 2
+    obj.f=fn;
+    obj.f();//5  this指向obj
+</script>
+</body>
+</html>

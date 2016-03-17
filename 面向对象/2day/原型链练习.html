@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Aminal(){}
+    function Dog(){}
+    var animal=new Aminal();
+    Dog.prototype=animal;
+    var dog=new Dog();
+    console.log(dog.__proto__==animal);//true
+
+
+</script>
+</body>
+</html>

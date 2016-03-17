@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1, 在 JavaScript 中词法作用域概括的解释就是，作用域与运行无关.
+
+2, 在 JavaScript 中 函数 限定作用域.
+
+3, 在 JavaScript 中, 如果函数内定义了变量, 那么 __不能___ 访问函数外部的同名变量.
+如果要访问外部的变量就设置一个临时的变量接收
+var num=123；
+var temp=num;
+function f(){
+    var num=234;
+    console.log(num);
+}
+f()
+4, 在 JavaScript 中, 下面代码
+if (!"a" in window) {
+var a = 123;
+}
+console.log(a);
+执行结果是多少 ___undefind__.
+
+5, 代码
+
+if (true) {
+function f () {
+console.log("22222");
+}
+} else {
+var f = function () {//
+console.log("11111");
+};
+}
+f();
+
+解析(提升)：function f(){}  var f
+执行：if(true){这里的是声明语句不执行}
+     else{给变量f赋值}
+     调用f()，跳到--解析(提升)：function f(){} 打印222222
+
+
+如果if(flase)
+解析(提升)：function f(){}  var f
+执行：if(flase){这里的是声明语句不执行}
+else{给变量f赋值}
+调用f()，跳到--解析(提升)：function f(){} 打印222222
+
+会执行什么 __222222___.
+
+6, 代码
+
+var n = 1, m = 2;
+function f() {
+var n = 3
+m = 4
+console.log(n);
+console.log(m);
+}
+f();
+console.log(n);
+console.log(m);
+
+执行结果是什么?3414
+
+7, 使用一句话总结什么叫闭包: 函数外部不能访问函数内部变量.
+
+
+8, 如何让一个对象的一个属性, 数据允许读取, 但是不允许修改(利用构造函数初始化)
+函数内部返回一个对象，对象绑定返回函数内部属性的方法，例如5day闭包案例.html
+9, 代码
+var arr = [	{name:"张三"},
+{name:"李四"},
+{name:"王五"},
+{name:"赵钱"},
+{name:"孙李"} ];
+for (var i = 0; i < arr.length; i++) {
+arr[i].show = function () {
+console.log(arr[i].name);
+};
+}
+
+for (var j = 0; j < arr.length; j++) {
+arr[j].show();
+}
+Uncaught TypeError: Cannot read property 'name' of undefined
+i=5,跳出循环
+
+的执行结果是多少?
+
+10, 代码
+var arr = [	{name:"张三"},
+{name:"李四"},
+{name:"王五"},
+{name:"赵钱"},
+{name:"孙李"} ];
+for (var i = 0; i < arr.length; i++) {
+arr[i].show = function () {
+console.log(arr[i].name);
+};
+}
+
+for (var i = 0; i < arr.length; i++) {
+arr[i].show();
+}
+
+的执行结果是多少?
+</body>
+<script>
+    var arr = [
+    {name:"张三"},
+    {name:"李四"},
+    {name:"王五"},
+    {name:"赵钱"},
+    {name:"孙李"} ];
+    for (var i = 0; i < arr.length; i++) {
+    arr[i].show = function () {
+    console.log(arr[i].name);
+    };
+    }
+
+    for (var j = 0; j < arr.length; j++) {
+    arr[j].show();
+    }
+</script>
+</html>

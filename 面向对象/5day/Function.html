@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+//function f(){
+//    var a=arguments;
+//    return a[0]>a[1]?a[0]:a[1];
+//
+//}
+//f(1,2);
+
+//    var fn=new Function('a','b','return a>b?a:b');
+//    console.log (fn(2,3));
+
+
+
+
+    ///////////////////////////////////////////
+    function fn(){
+        var a=arguments;
+        var m=a[0]
+        for(var i=0;i< a.length;i++)
+         if(m<a[i]){
+             m=a[i];
+         }
+        return m;
+    }
+
+var f=new Function();
+console.log (f(2,3,9));
+
+
+</script>
+</body>
+</html>

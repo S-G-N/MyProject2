@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script id="code">
+    /*
+     var a = arguments;
+     var sum = 0
+     for (var i = 0; i < a.length; i++){
+     sum += a[i];
+     }
+     return sum;
+    */
+</script>
+<script>
+//    function f() {
+//        var a = arguments;
+//        var sum = 0
+//        for (var i = 0; i < a.length; i++){
+//            sum += a[i];
+//        }
+//        return sum;
+//    }
+
+
+
+    var f=new Function(
+            document.getElementById('code')
+            .innerHTML
+            .trim()
+            .replace("/*",'').replace('*/','')
+    );
+    console.log (f(2,3,9));
+
+</script>
+</body>
+</html>

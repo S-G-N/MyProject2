@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+//        var num = 123;
+//        function f() {
+//            console.log(this.num);
+//        }
+//
+//        var o1 = {num: 456};
+//        var o2 = {
+//            num: 789,
+//            method: function () {
+//               f();
+//
+//            }
+//        };
+////
+//         f();			// => 123
+//         f.apply(); 		// => 123
+//         f.call(o1);		// => 456
+//         f.call(o2);		// => 789
+//         o2.method();	// => 123
+////
+
+///////////////////////////////////变式1/////////////////////////////////////////////////////////
+//        var num = 123;
+//        function f() {
+//            console.log(this.num);
+//        }
+//
+//        var o1 = {num: 456};
+//        var o2 = {
+//            num: 789,
+//            method: function () {
+//                var that = this;
+//                function foo() {
+//                    console.log(that.num);
+//                }
+//                foo();
+//            }
+//        };
+//        o2.method();//789
+
+
+
+///////////////////////////////////变式3/////////////////////////////////////////////////////////
+//        var num = 123;
+//        function f() {
+//            console.log(this.num);
+//        }
+//
+//        var o1 = {num: 456};
+//        var o2 = {
+//            num: 789,
+//            method: function () {
+//                // f();
+//                var that = this;
+//                function foo() {
+//                    console.log(this.num);
+//                    console.log(that.num);
+//                }
+//                o2.fn=foo;
+//                o2.fn();//789 789
+//            }
+//        };
+//        o2.method();
+///////////////////////////////////变式4/////////////////////////////////////////////////////////
+//        var num = 123;
+//        var o2 = {
+//            num: 789,
+//            method: function () {
+//                function foo() {
+//                    console.log(this.num);
+//                }
+//                foo();
+//            }
+//        };
+//        o2.method();
+//
+//
+/////////////////////////////////////变式5/////////////////////////////////////////////////////////
+//        var num =456;
+//        var o={
+//            num:123,
+//            fn: function () {
+//                function foo(){
+//                    console.log(this.num);
+//                }
+//                foo()
+//            }
+//        }
+//        o.fn();//456
+//////////////////////////////////////变式5/////////////////////////////////////////////////////////
+//    var num =456;
+//    var o={
+//        num:123,
+//        fn: function () {
+//            function foo(){
+//                console.log(this.num);
+//            }
+//            foo.apply(this);
+//        }
+//    }
+//    o.fn();//123
+//
+//////////////////////////////////////变式5/////////////////////////////////////////////////////////
+//var num =456;
+//var o={
+//    num:123,
+//    fn: function () {
+//        (function foo(){
+//            console.log(this.num);
+//        })()//自调用就属于函数调用，依附于window
+//
+//    }
+//}
+//o.fn();//456
+//////////////////////////////////////变式5/////////////////////////////////////////////////////////
+//var num =456;
+//var o={
+//    num:123,
+//    fn: function () {
+//        (function foo(){
+//            console.log(this.num);
+//        }).apply();//apply不传参或传null属于函数调用模式,依附于window
+//
+//    }
+//}
+//o.fn();//456
+//////////////////////////////////////变式5/////////////////////////////////////////////////////////
+//var num =456;
+//var o={
+//    num:123,
+//    fn: function () {
+//        (function foo(){
+//            console.log(this.num);
+//        }).apply(this)
+//
+//    }
+//}
+//o.fn();//123
+//////////////////////////////////////变式5/////////////////////////////////////////////////////////
+var num =456;
+var o={
+    num:123,
+    fn: function () {
+        var that=this;
+        (function foo(){
+            console.log(this.num);
+        }).call()
+
+    }
+}
+o.fn();//456
+    </script>
+
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1, 利用 Function 创建函数的语法:var f=new Function().
+
+2, caller 是如何调用的: 函数名.caller.表示是谁调用了它
+
+3, 函数名.length 表示什么:自定义形参个数.
+
+4, arguments 是数组吗? 不是，是类似于数组的对象.
+
+5, 如何获得用户输入的所有参数:arguments.
+
+6, 如何判断用户输入的参数与函数定义的参数个数一样? 函数名.length===arguments.
+
+7, 如果我希望用户输入一个字符串就打印, 如果输入一个函数就调用怎么写? .
+
+8, 如果有一个函数 function J() {}, 要求输入字符串, 则返回页面中 id 为该名字的 dom 对象
+如果传入的是一个函数, 则将其加载到 window.onload 上
+
+9, 使用 Function 返回的函数的原型属性类型是什么: Object类型_____.
+
+10, 函数字面量与函数声明有什么区别(两条以上):
+    1>函数声明在加载时就已经与解析了
+    2>声明没分号
+    3>全局，定义顺序
+    4>声明必须有名字 字面量函数可以没有名字
+    5>有名字的函数表达式，函数名为函数内部局部变量，函数外面不能访问，IE8—不支持
+
+
+11, 如何将函数表达式转换成函数字面量: __var f=function f(){}___.
+11, 如何将函数表达式转换成函数字面量: __(function f(){})___.
+11, 如何将函数表达式转换成函数字面量: __+function f(){}()_调用同(function f(){})__.
+
+12, eval 的作用?将字符串当代码执行
+
+全局的，将字符串转化为对象，不常用，多用new Function()实现，new Function()利用闭包，不污染全局变量
+
+13，上下文环境就是搜索范围
+<script>
+    //填空8题
+    function f(){
+
+        if(typeof arguments[0]==='function'){
+            window.onload=arguments[0]();
+        }else{
+            return document.getElementById(arguments[0]);
+        }
+    }
+//    function ff() {
+//        alert('已绑定到window.onliad')
+//    }
+    var a=prompt()
+    f(function () {
+        f(a).style.border='1px solid red';
+        f(a).style.width='100px';
+        f(a).style.height='100px';
+    })
+
+</script>
+<div id="s"></div>
+</body>
+</html>

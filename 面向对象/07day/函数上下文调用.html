@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var num =123 ;
+    function foo(){
+        console.log(this.num);
+    }
+    var o={num:456};
+    //foo()//函数调用模式
+    foo.apply(null);
+    foo.call(null);
+
+    //方法调用模式
+    //o.fn=foo;
+    //o.fn();
+    foo.apply(o);//上下文调用。。让一个函数作为一个对象的方法来调用
+    foo.call(o);//上下文调用
+
+
+/////////////////////////////////////////////////
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // 在 js 中数组是有元素, 有下标, 有 length 的一个对象
+    //  原始|加一
+    /*
+     //  0|1
+     o[o.length++] = 1;   // o[0] = 1
+     //  1|2
+     o[o.length++] = 2;   // o[1] = 2
+     //  2|3
+     o[o.length++] = 3;   // o[2] = 3
+     */
+    //此法可给对象添加属性
+    var o={length:0};
+    o[o.length++]="ss";
+    o[o.length++]="uu";
+    o[o.length++]="gg";
+    o[o.length++]="uu";
+    o[o.length++]="aa";
+    o[o.length++]="nn";
+//      a.push===>>push.apply
+    //////////////////////////////////////////////
+    [].push.call(o,'su','guan','nan');
+    [].push.apply(o,['shi','hao','ren']);
+/////////////////////////////////////////////////
+    var arr1=[].concat.apply([],o);
+    var arr=[].concat.apply(arr1,['c','d']);
+</script>
+</body>
+</html>

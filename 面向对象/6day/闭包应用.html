@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload= function () {
+//            var btns=document.getElementsByTagName('input');
+//            for(var i=0;i<btns.length;i++) {
+//                btns[i].onclick= function () {
+//                    for(var j=0;j<btns.length;j++){
+//                        btns[j].value="点击"
+//                    }
+//                    this.value = '已点击'
+//                }
+//
+////
+//            }
+////////////////////////////////////////////
+            var btns=document.getElementsByTagName('input');
+            var pre;
+            for(var i=0;i<btns.length;i++) {
+                btns[i].onclick= function () {
+                   if(pre!=null){
+                        pre.value="点击"
+                    }
+                    this.value = '已点击'
+                    pre=this;
+                }
+
+//
+            }
+////////////////////////////////////////////
+//            function change(){
+////                var btns=btns
+//                for(var j=0;j<btns.length;j++) {
+//                btns[j].value="点击"}
+//                return function (i) {
+//                                btns[i].value='已点击';
+//                            }
+//            }
+//
+//            for(var i=0;i<btns.length;i++) {
+////
+//                btns[i].onclick= function () {
+////                    change();
+//                    change(i)
+//                }
+//
+//
+////
+//            }
+
+        }
+    </script>
+</head>
+<br>
+<input type="button" value="点击"/>
+<input type="button" value="点击"/>
+<input type="button" value="点击"/>
+<input type="button" value="点击"/>
+<input type="button" value="点击"/></br>
+<!--<input type="button" value="点击"/>-->
+<!--<input type="button" value="点击"/>-->
+<!--<input type="button" value="点击"/>-->
+<!--<input type="button" value="点击"/>-->
+<!--<input type="button" value="点击"/></br>-->
+<!--<input type="button" value="点击"/>-->
+<!--<input type="button" value="点击"/>-->
+<!--<input type="button" value="点击"/>-->
+<!--<input type="button" value="点击"/>-->
+<!--<input type="button" value="点击"/>-->
+<!--</body>-->
+</html>

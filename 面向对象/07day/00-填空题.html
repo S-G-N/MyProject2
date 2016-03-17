@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+		</script>
+	</head>
+	<body>
+		1, 在函数中定义一个函数
+			function foo() {
+				function f1() {
+					console.log("f1");
+				}
+			}
+			如何才能在 foo 外面调用 f1 函数
+			function foo() {
+				return	function f1() {
+							console.log("f1");
+						}
+			}
+			foo()()
+		2, 在函数内部定义一个数组, 来模拟一个存储结构. 然后提供一个 pop 方法, 一个 push 方法, 
+			和一个 length 方法. pop 方法把数组中的最后一个数据取出来, push 方法添加一个数
+			据到数组中, length 方法用来表示数组中数据的个数
+		
+		3, 代码
+			function foo() {
+				var a = 123;
+				return {
+					a: a;//
+					set: function (value) {
+						a = value;
+					}
+				}
+			}
+			var o = foo();
+			console.log(o.a);
+			o.set(1);
+			console.log(o.a);
+			
+			执行的结果是多少? 为什么?
+		
+		4, 代码
+			function foo() {
+				var o = {num: 123};
+				return {
+					o: o;//语法错误
+					set: function (value) {
+						o.num = value;
+					}
+				}
+			}
+			var obj = foo();
+			console.log(obj.o.num);//123
+			o.set(1);
+			console.log(obj.o.num);//1
+			
+			执行的结果是多少? 为什么?
+		
+		5, 自定义一个 addEvent 方法和 removeEvent 方法, 允许实现时间的追加与移除. 
+			例如, 给 onload 加载事件:
+			addEvent(window.onload, "f1", function () {
+				console.log("f1");
+			});
+			addEvent(window.onload, "f2", function () {
+				console.log("f2");
+			});
+			页面加载完成后自动打印 f1 和 f2
+			
+			如果再调用 
+			remove(window.onload, "f1");
+			
+			则只打印 f2
+		
+		6, 数列:
+			1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+			序号从 0 开始表示, 定义一个函数计算出第 n 项来	
+			
+	</body>
+	<script>
+		///////////////////第1题/////////////////////////////
+//		function foo() {
+//			return	function f1() {
+//				console.log("f1已被调用");
+//			}
+//		}
+//		foo()()
+		///////////////////第2题/////////////////////////////
+//		function save(){
+//			var arr=[];
+//			var length=0;
+//			return{
+//				push: function (v) {
+//					arr.push(v);
+//					//arr[arr.length]=v;
+//					length++;
+//				},
+//				pop: function () {
+//					if(length===0){
+//						console.log('空数组，无法执行pop操作')
+//					}else{
+						//arr.pop()
+//						var last=arr[length-1];
+						//delete arr[length-1];可指定删除任意位置元素，数组长度不变，数组
+//						length--;//length设0，数组元素全删除，减一就删除一个
+//						return last;
+//					}
+//				},
+//				read:arr
+//			}
+//		}
+//		var f=save();
+//		f.push(12);
+//		f.push(13);
+//		f.push(14);
+//		console.log(f.read);
+//		console.log(f.pop());
+//		console.log(f.read);
+//		console.log(f.pop());
+//		console.log(f.read);
+
+
+
+		///////////////////第3题/////////////////////////////
+//		function foo() {
+//			var a = 123;
+//			return {
+//				a: a,//SyntaxError
+//			set: function (value) {
+//				a = value;
+//			}
+//		}
+//		}
+//		var o = foo();
+//		console.log(o.a);
+//		o.set(1);
+//		console.log(o.a);//调的是返回对象的属性
+
+		///////////////////第5题/////////////////////////////
+//		var load=(function load(){
+//			var arr={};
+//			return{
+//				add:(function () {
+//
+//					return function (fo, name, fn) {
+//						arr[name]=fn;
+//						fo= function () {
+//							for(var k in arr){
+//								arr[k]();
+//							}
+//						}
+//					}
+//				})(),
+//				remove:(function () {
+//					return function (fo,name) {
+//						fo= function () {
+//							delete arr[name];
+//						}
+//					}
+//				})()
+//			};
+//		})();
+//		load.add(window.onload,'f1',function () {
+//			console.log("f1");
+//		});
+//		load.add(window.onload,'f2',function () {
+//			console.log("f2");
+//		});
+//		load.remove(window.onload,'f1');
+
+
+
+		///////////////////第6题/////////////////////////////
+		//1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,
+//		function add(){
+//			var arr=[1,1];
+//
+//			return function (n) {
+//				for(var i=1;i<n-1;i++){
+//					arr[i+1]=arr[i-1]+arr[i];
+//				}
+//
+//				return arr;
+//			}
+//
+//
+//		}
+//		console.log(add()(11));
+
+
+			////////////////////////////
+
+//		var con=0;
+//		function f(n){
+//			con++;
+//			if(n==1||n==0)return 1;
+//			return f(n-1)+f(n-2)
+//		}
+//
+//		/*for (var i=0;i<=10;i++){
+//			console.log(f(i));
+//		}*/
+//		console.log(f(10));//10:117次，以指数形式增长，性能低
+//		console.log(con);
+
+		/////////////////////阶乘///////////////////
+//		function f(n){
+//			if(n==1)return 1;
+//			return n*f(n-1);
+//		}
+//		function f2(){
+//			var cross=1;
+//			for(var i=1;i<=n;i++){
+//				cross*=i;
+//			}
+//			return cross;
+//		}
+//		for(var i=1;i<10;i++){
+//			console.log(f(i));
+//			console.log(f2(i));
+//			console.log('--------------------');
+//		}
+
+		/////////////////////2的n次方////////////////////
+		//2*2
+//		function f(n){
+//			if(n>=0){
+//				if(n==0) return 1;
+//				return 2*f(n-1);
+//			}else{}
+//
+//		}
+//		for(var i=1;i<=4;i++) {
+//			console.log(f(i));
+//		}
+
+
+
+
+		/////////////////////m的n次方////////////////////
+		//
+//		function f(m,n){
+//			if(n>=0){
+//				if(n==0) return 1;
+//				return m*f(m,n-1);
+//			}
+//
+//		}
+//		for(var i=1;i<=4;i++) {
+//			console.log(f(2, i));
+//		}
+
+
+	</script>
+</html>
+

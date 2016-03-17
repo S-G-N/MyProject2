@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    console.log(Object instanceof Object);//true不能理解
+//    console.log(Object instanceof Function);//true
+//    console.log(Function instanceof Object);//true不能理解
+//    console.log(Function instanceof Function);//true
+//    function fn () {}
+//    console.log(fn instanceof Function);//true
+//    console.log(fn instanceof Object);//true
+//    console.log(Function instanceof Function);//true
+//    console.log(Number instanceof Number);//false
+//    console.log(String instanceof Number);//false
+//    console.log(String instanceof String);//false
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+//console.log(typeof []);//object
+//console.log([].toString);//function  toString() { [native code] }
+//console.log(![].toString);//false
+//console.log(!![].toString);//true
+//
+//////////////////////////////////////////////////////////////////////
+////
+//console.log((new Date));//Fri Mar 04 2016 20:06:46 GMT+0800 (中国标准时间)
+//console.log((new Date).valueOf);//function valueOf() { [native code] }
+//console.log(!(new Date).valueOf);//false
+//console.log(!!(new Date).valueOf);//true
+//var arr=[]
+//var arr1=new Array()
+
+
+function Foo(){}
+var foo=new Foo()
+
+
+    function AAA(){}
+AAA.prototype=foo;
+var x=new AAA()
+    console.log(x instanceof Foo)
+</script>
+</body>
+</html>

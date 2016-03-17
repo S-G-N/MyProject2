@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function foo(){
+        console.log(this);
+    }
+
+    var o={
+        name:'name'
+    }
+    foo();//window
+    var f=new foo();//构造方法
+    o.f=foo;//给o加方法；
+    o.f();//调用o的方法,打印的是o这个对象
+
+
+
+</script>
+</body>
+</html>

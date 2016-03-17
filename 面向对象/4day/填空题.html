@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    </script>
+</head>
+<body>
+            1> Function 的原型属性是 Function.prototype.
+            2> Function 的原型对象是 Function.__proto.
+            以上Function是作为一个自定义函数，如同：
+            1> Foo 的原型属性是 Foo.prototype.
+            2> Foo 的原型对象是 Foo.__proto———就是—————>构造它的构造函数的原型
+
+
+            3> Function 创建函数的语法为 function 函数名（）{}.
+            4> arguments 的作用 _____.
+            5> Object 的原型对象是 Function.prototype.
+            6> Function.prototype 继承自Object.prototype.
+            7> 代码
+            function Foo() {}
+            var o = {};
+            Foo.prototype = o;
+            var foo = new Foo();
+
+            foo.constructor 是 Foo_____.
+
+            8>  代码
+            function Foo() {}
+
+            Foo.constructor 是 __Function___.
+
+            9> 如何判断函数调用时, 传入参数的个数是正确的: __arguments.callee.length>=arguments.length___.
+
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var o={name:'jim',sayHellow: function (v1,v2,v3) {
+        console.log('你好'+v1+","+v2+','+v3+'我是'+this.name);
+    }};
+    o.sayHellow('tom1','itcast','ton2');
+    o.sayHellow.apply(o,['tom2','itcast','ton3']);//apply调用使用数组添加参数
+    o.sayHellow.call(o,'tom4','itcast','ton5');//call调用直接添加参数
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(){
+
+    }
+    var p1=new Person()
+    Person.prototype={
+        say: function () {
+            console.log('你好')
+        }
+    }
+    var p2=new Person()
+//    p1.say();//Uncaught TypeError: p1.say is not a function
+    p2.say();
+</script>
+</body>
+</html>

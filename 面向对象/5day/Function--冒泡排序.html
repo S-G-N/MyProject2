@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script id="code">
+    /*
+     var a = arguments;
+     var t;
+     for (var i = 0; i < a.length; i++){
+     for (var j = 0; j < a.length-i; j++){
+     if(a[j]>a[j+1]){
+     t=a[j];
+     a[j]=a[j+1];
+     a[j+1]=t;
+     }
+
+     }
+     }
+     for (var k = 0; k < a.length; k++){
+     console.log(a[k]);
+     }
+    */
+</script>
+<script>
+    function f() {
+        var a = arguments;
+        var t;
+        var c=0;
+        for (var i = 0; i < a.length; i++){
+            for (var j = 0; j < a.length-i; j++){
+                c++;
+
+                if(a[j]>a[j+1]){
+                    t=a[j];
+                    a[j]=a[j+1];
+                    a[j+1]=t;
+                }
+
+            }
+        }
+        for (var k = 0; k < a.length; k++){
+            console.log(a[k]);
+        }
+    }
+
+
+
+//    var f=new Function(
+//            document.getElementById('code')
+//            .innerHTML
+//            .trim()
+//            .replace("/*",'').replace('*/','')
+//    );
+    f(12,3,1,44,22,99);
+
+</script>
+</body>
+</html>

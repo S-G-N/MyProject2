@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="dv"></div>
+<script>
+//    function Fn(){
+//        this.name="ss";
+//        this.gender='男';
+//    }
+//    Fn.prototype.say={
+//        say:console.log('ddd')
+//    };
+//    var fn=new Fn();
+//    console.log(fn.hasOwnProperty('name'));//true
+//    console.log(Fn.hasOwnProperty('name'));//true
+//    console.log(fn.hasOwnProperty('say'));
+//    console.log(Fn.hasOwnProperty('say'));
+//    console.log(fn.hasOwnProperty('sa'));
+//    console.log(Fn.hasOwnProperty('sa'));
+
+//    console.log(Fn.prototype.isPrototypeOf(Fn));//false
+//    console.log(fn.__proto__.isPrototypeOf(Fn));//false
+//    console.log(Fn.prototype.isPrototypeOf(fn));
+//    console.log(fn.__proto__.isPrototypeOf(fn));
+//    console.log(Fn.isPrototypeOf(Fn));//false
+//    console.log(Fn.isPrototypeOf(fn));//false
+//    console.log(fn.isPrototypeOf(Fn));//false
+//    console.log(fn.isPrototypeOf(fn));//false
+
+
+//    console.log(Fn.propertyIsEnumerable('name'))//false
+//    console.log(Fn.propertyIsEnumerable('say'))//false
+//    console.log(Fn.propertyIsEnumerable('sa'))//false
+//    console.log(fn.propertyIsEnumerable('name'))//true
+//    console.log(fn.propertyIsEnumerable('say'))//false
+//    console.log(fn.propertyIsEnumerable('sa'))//false
+//    for(var k in fn){
+////        console.log(fn.propertyIsEnumerable(k))
+//        console.log(fn.propertyIsEnumerable(k))
+//    }
+
+///////////////////////////////////////////////////////////////////////////////
+//var a1 = [1,2];
+//var a2 = [1,2];
+//a1.valueOf = function() {
+//    console.log("调⽤了 valueOf");
+//    return 3;
+//};
+//a1.toString = function() {
+//    console.log("调⽤了, toString");
+//    return "---";
+//};
+//console.log(Number(a1));
+//console.log(Boolean(a1));
+//console.log(String(a1));
+//console.log(Number(a2));
+    //////////////////////////////////////////////////////////////
+//function max(num1, num2, num3) {
+//    var max;
+//    if (num1 >= num2) {
+//        if (num1 >= num3) {
+//            max = num1;
+//        }
+//        else {
+//            max = num3;
+//        }
+//    } else {
+//        if (num2 >= num3) {
+//            max = num2;
+//        } else {
+//            max = num3;
+//        }
+//    }
+//    return max;
+//}
+//console.log(max(2,4,9))
+
+
+//    var fn=new Function('n1','n2','n3','return (n1>n2?n1:n2)>n3?(n1>n2?n1:n2):n3')
+//    console.log(fn(2,4,9))
+//    ///////////////////////////////////////////////////////////////////
+//(function () {
+//
+//    console.log('自调用函数');
+//})()
+    ///////////////////////////////////////////////////////////////////
+
+//function J() {
+//    var len = arguments.length,
+//            arg = arguments[0];
+//    if (len != 1) return;
+//    if (typeof (arg) === "function") {
+//        window.onload = arg;
+//    }
+//    if (typeof (arg) === "string") {
+//        return document.getElementById(arg);
+//    }
+//}
+//J()
+//J('onload','dv','function(){console.log("ok")}')
+    //////////////////////////////////////////////////////////////////////
+//    function maxMin(){
+//       for(var i =0;i< arguments.length;i++){
+//           if(arguments[i]<arguments[1+1]){
+//               arguments[i]=arguments[i+1]
+//               i++
+//           }
+//       }
+//        return arguments[i]
+//    }
+//    maxMin()
+    ////////////////////////////////////////////////////////////////////
+//var foo = function() {
+//    console.log("foo");
+//}
+//var func = function() {
+////    var foo;
+//    foo();
+////    foo = function() {
+////        console.log("func.foo");
+//    function foo() {
+//        console.log("func.foo");
+//    }
+//}
+//func();
+
+
+
+    ////////////////////////////////////闭包///////////////////////////
+//var person = function(name, age, gender) {
+//    return {
+//        get name() {
+//            return name;
+//        },
+//        get age() {
+//            return age;
+//        },
+//        get gender() {
+//            return gender;
+//        }
+//    }
+//};
+//var obj = person("jk", 19, "male");
+//console.log(obj.name);
+//console.log(obj.age);
+//console.log(obj.gender);
+    //////////////////////////////////////////////////////////
+//var sum = 0;
+////(function () {
+////            for (var i = 0; i <= 100; i++) {
+////                sum += i;
+////            }}
+////)();
+////console.log(sum);
+//
+//    function f(){
+//        for (var i = 0; i <= 100; i++) {
+//            sum += i;
+//        }
+//    }
+//f()
+//
+//console.log(sum);
+
+    ////////////////////////////////////////////////////////////////
+//    function Person(){}
+//    console.log(Person.prototype);
+//    console.log(typeof  Person.prototype);//Object
+//    console.log(Person.prototype instanceof Object);
+//    console.log(Person.prototype instanceof Person);
+
+
+    /////////////////////////////////////////////////////////////
+    function f3(array){
+        array=[1,2,3]
+    }
+    var a=[11,22,33]
+
+    console.log(a);
+    f3(a);
+    a[0]='a';
+    console.log(a);
+</script>
+
+</body>
+</html>

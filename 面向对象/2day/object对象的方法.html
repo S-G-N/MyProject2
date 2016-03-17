@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    ///////////////////////////////////////
+    function Foo(name){
+        this.name =name;
+    }
+    var o={
+        age:11,
+        gender:'男'
+    }
+    Foo.prototype=o;
+    var f=new Foo('张三')
+//    console.log(f.hasOwnProperty('name'))//true
+//    console.log(f.hasOwnProperty('age'))//false
+//    console.log(Foo.prototype.isPrototypeOf(o))//false
+//    console.log(Foo.prototype.isPrototypeOf(Foo))//false
+//    console.log(Foo.prototype.isPrototypeOf(f))//t]rue
+    console.log(f.propertyIsEnumerable('name'))//true
+    console.log(f.propertyIsEnumerable('age'))//false
+    console.log(f.propertyIsEnumerable('genser'))//false
+
+    /////////////////////////////////////
+//    function Foo(name){
+//        this.name =name;
+//    }
+//    Foo.prototype={
+//        age:11,
+//        gender:'男'
+//    }
+//
+//    var f=new Foo('张三')
+//    console.log(f.hasOwnProperty('name'))//true
+//    console.log(f.hasOwnProperty('age'))//false
+
+
+
+    /******************************************************/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div class="dvv">我是div</div>
+<div class="dv">我是div</div>
+<div class="dv">我是div</div>
+<p class="d3">我是p标签</p>
+<p class="d3">我是p标签</p>
+<p class="d3">我是p标签</p>
+<script src="jquery.min.js"></script>
+<script>
+    console.log($("selector",".dv").prevObject)
+//    $("selector",'.d1').innerHTML='';
+    $("selector",'.dv').prevObject[0].innerHTML+="   选择到了";
+
+
+</script>
+</body>
+</html>

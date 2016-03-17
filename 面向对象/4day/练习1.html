@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+//    写一个函数 J, 要求如果函数接收一个参数, 如果该参数是函数, 则将其加载到 onload 上;
+//    如果传递的是 一个字符串. 如果字符串是 # 开头, 那么获得页面中 id 等于该字符串的元素;
+//    如果该字符串是以. 开头, 则获得页面中 class 属性为该字符串的元素(数组)
+//    如果仅仅是一个名字字符串, 则返回标签名字为该字符串的元素
+//    如果有两个参数, 第一个参数是 选择器, 第二个参数也是选择器
+//    则在第二个字符串的元素上找第一个字符串的元素
+
+    function J(){
+        var a=arguments
+        var dv
+         if(a.length===1) {//传入参数是1个
+
+             if (typeof a[0] === 'function') {
+                 window.onload = a[0];
+             }
+             else if (typeof a[0] === 'string') {
+                 if (a[0].charAt(0) === '#') {
+                     dv = document.getElementById(a[0].substring(1));
+                 }else
+                 if (a[0].charAt(0) === '.') {
+                    dv = document.getElementsByClassName(a[0].substring(1));
+                 }else{
+                     dv = document.getElementsByTagName(a[0]);
+                 }
+             }
+
+         }
+         else if(a.length===2){//传入参数是2个
+             if (typeof a[0] === 'string'&&typeof a[1] === 'string'){
+                 if (a[1].charAt(0) === '#') {
+                     if(a[0].charAt(0) === '#'){
+                         //# #
+
+//                         dv = document.getElementById(a[1].substring(1));
+
+                     }else if(a[0].charAt(0) === '.'){
+                         //. #
+                         dv = document.getElementById(a[1].substring(1));
+                         dv = dv.getElementsByClassName(a[0].substring(1))[0];
+                     }else{
+                         //tag #
+                         dv = document.getElementById(a[1].substring(1));
+                         dv=dv.getElementsByTagName(a[0])[0];
+                     }
+                 }else
+                 if (a[1].charAt(0) === '.') {
+                     if(a[0].charAt(0) === '#'){
+                         //# .
+//                         dv = document.getElementsByClassName(a[1].substring(1));
+
+                     }else if(a[0].charAt(0) === '.'){
+                         //. .
+
+                         var ds =document.getElementsByClassName(a[1].substring(1));
+//                         for(var i=0;i<ds.length;i++){
+//                             dv = ds[i].getElementsByClassName(a[0].substring(1))[0];
+//                         }
+
+                     }else{
+//                         //tag .
+//                         dv =document.getElementsByTagName(a[1].substring(1))[0];
+//                         dv = dv.getElementsByClassName(a[0].substring(1))[0];
+                     }
+//                      dv = document.getElementsByClassName(a[1].substring(1)).find(a[0]);
+                 }else{
+//
+                     if(a[0].charAt(0) === '#'){
+                         //# tag
+                     }else if(a[0].charAt(0) === '.'){
+                         //. tag
+                     }else{
+                         //tag tag
+                         dv=document.getElementsByTagName(a[1])[0];
+                         dv=dv.getElementsByTagName(a[0])[0];
+                     }
+
+                 }
+             }
+         }
+        return dv;
+     }
+
+
+//
+J(function () {
+//    var j=J('#s','nav')
+//    var j=J('#i','#s')
+    var j=J('nav','div')
+//    var j=J('.i','.s')
+//    var j=J('div','#s')
+        j.style.border = '1px solid red'
+        j.style.width = '200px'
+        j.style.height = '100px'
+        j.style.backgroundColor = 'purple'
+
+})
+</script>
+<div id="dv"></div>
+<div class="dv"></div>
+<div class="dv">
+    <nav>我是紫色</nav>
+    <nav>我是紫色</nav>
+    <div>我不该是紫色</div>
+    <!--<div class="i">我不该是紫色</div>-->
+<!--</div>-->
+<!--<div class="s">我是id=s的div-->
+    <!--<div class="i">我是紫色</div>-->
+
+
+<!--</div>-->
+<!--<div class="s">我是id=s的div-->
+    <!--<div class="i">我是紫色</div>-->
+
+
+</div>
+<div class="s">我是class=s的div</div>
+<div class="s">我是class=s的div</div>
+<div class="s">我是class=s的div</div>
+<!--<nav id="s" >我是class=s的nav</nav>-->
+<nav></nav>
+<span></span>
+<span></span>
+<div></div>
+<div></div>
+</body>
+</html>
+

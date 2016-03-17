@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var s=0;
+    function shui(money){
+        if(money>80000){
+            s+=money%80000*0.45;
+            shui(80000);
+        }else
+        if(money>55000){
+            if(money==80000){
+                s+=25000*0.35;
+            }else{
+                s+=money%55000*0.35;
+            }
+            shui(55000);
+        }else
+        if(money>35000){
+            if(money==55000){
+               s+=20000*0.3;
+            }else{
+                s+=money%35000*0.30;
+            }
+            shui(35000);
+        }else
+        if(money>9000){
+            if(money==35000){
+                s+=36000*0.25;
+            }else{
+                s+=money%9000*0.25;
+            }
+            shui(9000);
+        }else
+        if(money>4500){
+            if(money==9000){
+                s+=4500*0.2;
+            }else{
+                s=s+money%4500*0.20;
+            }
+            shui(4500);
+        }else
+        if(money>1500){
+            if(money==4500){
+                s+=3000*0.1;
+            }else{
+
+                s+=money%1500*0.10;
+            }
+//            shui(1500);
+        }else{
+            console.log("不用交");
+        }
+
+        return s;
+    }
+    alert(shui(40000))
+
+
+
+
+
+</script>
+</body>
+</html>

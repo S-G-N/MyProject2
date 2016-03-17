@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="common.js"></script>
+<script>
+    var addLoad=(function () {
+        var arr=[];
+        return function (fn) {
+            arr.push(fn);
+            window.onload= function () {
+                for(var i=0;i<arr.length;i++){
+                    arr[i]();
+                }
+            }
+        }
+    })();
+   addLoad(function(){
+       o.id('ss').style.border="1px solid red";
+   });
+    addLoad(function(){
+        o.id('ss').style.height="100px";
+        o.id('ss').style.width="300px";
+    });
+</script>
+<div id="ss"></div>
+</body>
+</html>

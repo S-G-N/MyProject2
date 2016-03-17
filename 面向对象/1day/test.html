@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(name){
+        this.name=name;
+    }
+    Person.prototype.sayHellow= function () {
+        console.log("你好，我是"+this.name);
+    }
+    function Dog(say){
+        this.say=say;
+    }
+    Dog.prototype.sayHellow= function () {
+        console.log(this.say);
+    }
+    var p1=new Person("tom");
+    p1.sayHellow();
+    var p2=new Person("jim");
+    p2.sayHellow();
+    console.log(p1.sayHellow===p2.sayHellow)//true
+    var d1=new Dog('汪汪汪汪');
+    d1.sayHellow();
+</script>
+</body>
+</html>

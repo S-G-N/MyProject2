@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="common.js"></script>
+<script>
+    var load=(function load(){
+//        var arr=[];
+        var arr={};
+        return{
+            add:(function () {
+
+                    return function (name, fn) {
+                        arr[name]=fn;
+                        window.onload= function () {
+                            for(var k in arr){
+                                arr[k]();
+                            }
+                        }
+                    }
+            })(),
+            remove:(function () {
+                    return function (name) {
+                        delete arr[name];
+                    }
+            })()
+        };
+    })();
+
+
+    load.add('border',function () {
+        o.id('ss').style.border="1px solid red";
+    });
+    load.add('content', function () {
+        o.id('ss').style.height="100px";
+        o.id('ss').style.width="300px";
+        o.id('ss').style.backgroundColor="yellow";
+    });
+    load.remove('border');
+
+
+</script>
+<div id="ss"></div>
+</body>
+</html>

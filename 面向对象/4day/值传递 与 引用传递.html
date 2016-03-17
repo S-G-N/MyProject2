@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // function Person() {}
+
+        // Person.prototype  是 Person 创建出来的对象所继承的原型对象
+
+        // Person.__proto__  是指 Person 函数所继承的对象, 即 Function.prototype
+
+
+        // 对象1 Object.create(对象0);
+        // 对象1.__proto__ === 对象0
+
+        var o = {name:"zhangsan"};
+        function Foo() {}
+        Foo.prototype = o;
+        var foo1 = new Foo();
+
+        // foo -> o -> Object.prototype -> null
+
+        var foo2 = Object.create(o);
+
+
+
+        var num = 1; // 简单类型 number
+        // console.log(num.toString()); // 点 toString 的是 Number 包装对象
+        /*
+         num.toString()
+         1, 将 num 用 Number 包装一次, 创建了一个新的对象, 而这个对象的指恰好是 num
+         2, 利用对象调用 toString 方法
+         3, 得到结果释放临时创建的对象
+         */
+
+
+
+
+
+        // 对象可以通过引用来传递，他们永远不会被复制  不懂
+        /*
+         function f2(num) {
+         num = 2;
+         }
+
+         var num1 = 123;
+         f2(num1);
+
+         console.log(num1); // => 246, 123
+
+         // QQ 上传文件
+         */
+
+        /*
+         function f3(array) {
+         // array = [1,2,3]; // 赋值  -> array[0] = 'a'
+         array[0] = 'a';
+         // array[0] 就是访问数组的第0个元素
+         }
+         var a = [11,22,33];
+         // 凡是对象类型, 变量中存储的都是一个地址(引用)
+
+         console.log(a); // 11,22,33
+
+         f3(a);  // 会将数据拷贝一份传递给函数
+
+         console.log(a); // 1,2,3  or  11,22,33
+         // a, 22, 33
+         */
+
+
+
+
+
+        // 1, 练习
+        //			function Foo4(a) {
+        //				a.name = "李四";
+        //			}
+        //
+        //			var o = {name:"张三"};
+        //
+        //			console.log(o);//{name:"张三"}
+        //
+        //			Foo4(o);
+        //
+        //			console.log(o);//{name:"李四"}
+        //
+        //
+        //			// 2, 练习
+        //			function Foo5(a) {
+        //				a.name = "李四";
+        //				a.age = 19;
+        //			}
+        //
+        //			var o = {name:"张三"};
+        //
+        //			console.log(o);//{name:"张三"}
+        //
+        //			Foo5(o);
+        //
+        //			console.log(o);//{name = "李四";age = 19;}
+        //
+        //
+        //
+        //
+        //			// 3, 练习
+        //			function Foo6(a) {
+        //				a = {
+        //					name:"李四",
+        //					age: 19
+        //				};
+        //			}
+        //
+        //			var o = {name:"张三"};
+        //
+        //			console.log(o);//{name:"张三"}
+        //
+        //			Foo6(o);
+        //
+        //			console.log(o);//{name:"张三"};
+
+
+        // 4, 练习
+        Object.prototype.extend=function(o){
+            for(var k in o){
+                this[k]=o[k];
+            }
+        }
+
+        function Foo7(a) {
+            a.extend( {
+                name:"李四",
+                age: 19
+            })
+        }
+
+        var o = {name:"张三"};
+
+        console.log(o);//{name:"张三"}
+
+        Foo7(o);
+
+        console.log(o);//{name: "李四", age: 19};
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    (function foo() {
+        console.log(1);
+    })
+    foo();//Uncaught ReferenceError: foo is not defined
+    //自调用函数的函数名只能在函数内部访问
+    //一般作为递归使用此名字
+
+
+    //json缺点：不能复用，引入构造方法复用对象
+
+    var o={
+        name:'ss',
+        age:12
+    }
+    Array.concat.apply([],o)
+
+
+
+</script>
+</body>
+</html>

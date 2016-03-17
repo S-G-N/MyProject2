@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    function  Person (name,age,gender){
+//      this.name=name;
+//        this.gender=gender;
+//        this.age=age;
+//
+//    }
+//    function Student(score){
+//        this.score=score;
+//
+//    }
+//    Student.prototype=new Person("张三",19,'男');
+//    var s=new Student(99);
+//    console.log(s.name, s.age, s.gender, s.score)
+//
+//
+
+
+
+
+    var o={
+        name:'张三',
+        age:18,
+        gender:'男'
+    }
+    function Student(score){
+        this.score=score;
+
+    }
+
+    Student.prototype=o;
+
+//    Student.prototype.__proto__=o;
+    var s=new Student(99);
+//s.constructor是Object。o是object类型o没有constructor，
+// o原型是object.prototype，object.prototype的constructor继承给了o，
+// o将constructor继承给了构造函数的对象s，
+//    所以s的constructor指向object.prototype的构造函数object；
+
+</script>
+</body>
+</html>
